@@ -36,7 +36,7 @@ panel on the left:
 
 Delete existing table
 -- SQLBook: Code
--- Active: 1710903290079@@127.0.0.1@5432@postgres
+-- Active: 1710938677966@@127.0.0.1@5432@postgres
 -- If the table already exists we can drop it:
 -- If it doesn't exist nothing happens
 -- System commands are in upper case and user defined
@@ -49,6 +49,7 @@ DROP TABLE IF EXISTS drivers;
 
 Create empty table from codebook
 -- SQLBook: Code
+-- Active: 1710938677966@@127.0.0.1@5432@postgres
 -- Create empty TABLE called "drivers"
 -- This example has five arguments separated by a comma
 -- that contain the "column_name" and "column_type", respectively
@@ -69,7 +70,7 @@ Add rows to table
 -- You write system commands in capital letters to easily distinguish
 -- column names from system commands
 
-INSERT INTO drivers VALUES (1, 'Lewis Hamilton','British',103);
+INSERT INTO drivers  VALUES (1, 'Lewis Hamilton','British',103);
 
 INSERT INTO drivers  VALUES (4, 'Fernando Alonso', 'Spanish',32);
 
@@ -96,14 +97,14 @@ Try it yourself!
 
 - Add two/three more rows on your own
 -- SQLBook: Code
+-- Active: 1710938677966@@127.0.0.1@5432@postgres
 -- Add your name/nationality and your neighbors'
 -- Select a new driver id (needs to be unique)
 -- Make sure to deparate arguments by a semicolon!
 
 INSERT INTO drivers VALUES (5, 'Max Verstappen', 'Dutch', 51);
 INSERT INTO drivers VALUES (6, 'Juan Pablo Montoya', 'Colombian', 6);
-
-INSERT INTO drivers VALUES (7, 'Alejandro Sanchez Becerra','Colombian',2000);
+INSERT INTO drivers VALUES (7, 'Scarlett Wu', 'Chinese', 24);
 
 -- SQLBook: Markup
 # <span style="color:darkblue"> II. Dataset Operations </span>
@@ -113,6 +114,7 @@ INSERT INTO drivers VALUES (7, 'Alejandro Sanchez Becerra','Colombian',2000);
 
 Extracting columns from table
 -- SQLBook: Code
+-- Active: 1710938677966@@127.0.0.1@5432@postgres
 -- SELECT extracts certain COLUMNS
 -- FROM is used to indicate the source table
 
@@ -122,6 +124,7 @@ SELECT driver_id, nationality FROM drivers;
 
 Extract all columns from table
 -- SQLBook: Code
+-- Active: 1710938677966@@127.0.0.1@5432@postgres
 -- The symbol "*" is a shorthand for "all variables"
 SELECT * FROM drivers;
 -- SQLBook: Markup
@@ -129,17 +132,18 @@ SELECT * FROM drivers;
 
 Subsetting rows
 -- SQLBook: Code
+-- Active: 1710938677966@@127.0.0.1@5432@postgres
 -- The WHERE command evaluates logical conditions to subset rows
 SELECT * FROM drivers
-WHERE nationality = 'German';
+WHERE nationality = 'German' and nationality = 'Chinese';
 
 -- Evalute OR conditions
 SELECT * FROM drivers
-WHERE (nationality = 'Colombian') OR (nationality = 'German');
+WHERE nationality = 'United States' or nationality = 'Chinese';
 
 -- Evaluate AND conditions
 SELECT * FROM drivers
-WHERE (nationality = 'German') AND (driver_id = 3) ;
+WHERE (nationality = 'German') and (driver_id = 2);
 
 -- SQLBook: Markup
 <font size="5"> 
